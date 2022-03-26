@@ -18,14 +18,29 @@ export default ({
   return (
     <ScrollView flex="1" _dark={{bg: '#201E20'}}>
       <Box p="3">
-        <Box p="2" bg="#fff" borderRadius="20" mb="10">
-          <LogAppsChart />
+        <Box
+          p="2"
+          _dark={{bg: '#422c15'}}
+          _light={{bg: '#fff'}}
+          borderRadius="20"
+          mb="10">
+          <LogAppsChart theme={colorMode} />
         </Box>
-        <Box p="2" bg="#fff" borderRadius="20" mb="10">
-          <LogMonthChart />
+        <Box
+          p="2"
+          _dark={{bg: '#422c15'}}
+          _light={{bg: '#fff'}}
+          borderRadius="20"
+          mb="10">
+          <LogMonthChart theme={colorMode} />
         </Box>
-        <Box p="2" bg="#fff" borderRadius="20" mb="10">
-          <LogYearlyChart />
+        <Box
+          p="2"
+          _dark={{bg: '#422c15'}}
+          _light={{bg: '#fff'}}
+          borderRadius="20"
+          mb="10">
+          <LogYearlyChart theme={colorMode} />
         </Box>
       </Box>
     </ScrollView>

@@ -3,10 +3,16 @@ import {formatDateTime} from '@utils/index';
 import {RNWebChart} from '@react-native-web-charts/webview';
 import {html} from '@react-native-web-charts/echarts';
 import {WebView} from 'react-native-webview';
+import EchartsTheme from '@contants/echartsTheme';
+import type {ColorMode} from 'native-base';
 import useSWR from 'swr';
 const date = Date.now();
 
-export default () => {
+interface Props {
+  theme: ColorMode;
+}
+
+export default (props: Props) => {
   const ref = useRef<WebView | null>(null);
   const [isLoad, setIsLoad] = useState(false);
   const {data} = useSWR<API.ChartReportInfoResponse>({
@@ -18,17 +24,16 @@ export default () => {
   };
   useEffect(() => {
     if (isLoad && data) {
-      let datasetStr = '';
-      let lengendDataStr = '';
-      let seriesStr = '';
       const result: Array<Array<number | string>> = [['日期']];
+      const series: any[] = [];
+      const lengend: string[] = [];
       data.forEach((item, index) => {
         result[0].push(item.name);
-        lengendDataStr = lengendDataStr + `'${item.name}',`;
-        seriesStr = seriesStr + '{"smooth": true, "type": "line"},';
+        lengend.push(item.name);
+        series.push({type: 'line', smooth: true});
         if (index === 0) {
           item.list.forEach(citem => {
-            result.push([`${citem.label}号`, citem.count]);
+            result.push([`${citem.label}日`, citem.count]);
           });
         } else {
           item.list.forEach((citem, cindex) => {
@@ -36,47 +41,69 @@ export default () => {
           });
         }
       });
-      result.forEach(item => {
-        let itemStr = '';
-        item.forEach(citem => {
-          itemStr = itemStr + `'${citem}',`;
-        });
-        datasetStr = datasetStr + `[${itemStr}],`;
-      });
-      const time = formatDateTime(new Date().getTime());
+      // let datasetStr = '';
+      // let lengendDataStr = '';
+      // let seriesStr = '';
+      // const result: Array<Array<number | string>> = [['日期']];
+      // data.forEach((item, index) => {
+      //   result[0].push(item.name);
+      //   lengendDataStr = lengendDataStr + `'${item.name}',`;
+      //   seriesStr = seriesStr + '{"smooth": true, "type": "line"},';
+      //   if (index === 0) {
+      //     item.list.forEach(citem => {
+      //       result.push([`${citem.label}号`, citem.count]);
+      //     });
+      //   } else {
+      //     item.list.forEach((citem, cindex) => {
+      //       result[cindex + 1].push(citem.count);
+      //     });
+      //   }
+      // });
+      // result.forEach(item => {
+      //   let itemStr = '';
+      //   item.forEach(citem => {
+      //     itemStr = itemStr + `'${citem}',`;
+      //   });
+      //   datasetStr = datasetStr + `[${itemStr}],`;
+      // });
+      const options = {
+        title: {
+          text: '当月日志统计',
+          subtext: formatDateTime(new Date().getTime()),
+          left: 'center',
+        },
+        xAxis: {type: 'category'},
+        yAxis: {
+          min: 0,
+          minInterval: 1,
+        },
+        grid: {
+          containLabel: true,
+          top: 70,
+          bottom: 30,
+          left: 5,
+          right: 5,
+        },
+        legend: {
+          type: 'scroll',
+          top: 'bottom',
+          data: lengend,
+        },
+        tooltip: {},
+        series: series,
+        dataset: {
+          source: result,
+        },
+      };
       ref.current &&
         ref.current.injectJavaScript(`(function() {
-    window.rnChart.chart.setOption({
-      title: {
-        text: '当月日志统计',
-        subtext: '${time}',
-        left: 'center'
-      },
-      xAxis: { type: 'category' },
-      yAxis: {
-        min: 0,
-        minInterval: 1,
-      },
-      grid: {
-        containLabel: true,
-        top: 70,
-        bottom: 30,
-        left: 5,
-        right: 5,
-      },
-      legend: {
-        type: 'scroll',
-        top: 'bottom',
-        data: [${lengendDataStr}]
-      },
-      tooltip: {
-      },
-      series: [${seriesStr}],
-      dataset: {
-        source : [${datasetStr}]
-      }
-    });
-  })();`);
+          window.rnChart.chart.dispose();
+          window.rnChart.registerTheme('darkT', ${JSON.stringify(
+            EchartsTheme,
+          )});
+          window.rnChart.init('${props.theme === 'dark' ? 'darkT' : 'light'}');
+          window.rnChart.chart.setOption(${JSON.stringify(options)});
+        })();`);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoad, data]);
