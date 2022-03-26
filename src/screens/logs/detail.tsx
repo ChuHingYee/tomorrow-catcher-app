@@ -36,7 +36,7 @@ export default function HomeDetail({
   useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {backgroundColor: colorMode === 'dark' ? '#553718' : '#fff'},
-      headerTintColor: colorMode === 'dark' ? 'gray.900' : '#27272a',
+      headerTintColor: colorMode === 'dark' ? '#eee' : '#27272a',
     });
   }, [colorMode, navigation]);
   return (
@@ -64,74 +64,74 @@ export default function HomeDetail({
                 <Heading
                   size="md"
                   ml="-1"
-                  _dark={{color: 'gray.900'}}
+                  _dark={{color: '#eee'}}
                   _light={{color: 'darkText'}}>
                   基本信息
                 </Heading>
               </Stack>
               <Text
                 fontWeight="400"
-                _dark={{color: 'gray.900'}}
+                _dark={{color: '#eee'}}
                 _light={{color: 'darkText'}}>
                 应用 :{detail?.appInfo?.name}
               </Text>
               <Text
                 fontWeight="400"
-                _dark={{color: 'gray.900'}}
+                _dark={{color: '#eee'}}
                 _light={{color: 'darkText'}}>
                 错误名称 :{detail?.name}
               </Text>
               <Text
                 fontWeight="400"
-                _dark={{color: 'gray.900'}}
+                _dark={{color: '#eee'}}
                 _light={{color: 'darkText'}}>
                 错误消息 :{detail?.message}
               </Text>
               <Text
                 fontWeight="400"
-                _dark={{color: 'gray.900'}}
+                _dark={{color: '#eee'}}
                 _light={{color: 'darkText'}}>
                 错误位置 :{detail?.result?.column}
               </Text>
               <Text
                 fontWeight="400"
-                _dark={{color: 'gray.900'}}
+                _dark={{color: '#eee'}}
                 _light={{color: 'darkText'}}>
                 错误文件 :{detail?.result?.source}
               </Text>
               <Text
                 fontWeight="400"
-                _dark={{color: 'gray.900'}}
+                _dark={{color: '#eee'}}
                 _light={{color: 'darkText'}}>
                 浏览器类型 :{detail?.systemInfo?.userAgent}
               </Text>
               <Text
                 fontWeight="400"
-                _dark={{color: 'gray.900'}}
+                _dark={{color: '#eee'}}
                 _light={{color: 'darkText'}}>
                 系统 :{detail?.systemInfo?.platform}
               </Text>
               <Text
                 fontWeight="400"
-                _dark={{color: 'gray.900'}}
+                _dark={{color: '#eee'}}
                 _light={{color: 'darkText'}}>
                 语言 :{detail?.systemInfo?.language}
               </Text>
               <Text
                 fontWeight="400"
-                _dark={{color: 'gray.900'}}
+                _dark={{color: '#eee'}}
                 _light={{color: 'darkText'}}>
                 sdk版本 :{detail?.systemInfo?.sdkVersion}
               </Text>
               <Text
                 fontWeight="400"
-                _dark={{color: 'gray.900'}}
+                _dark={{color: '#eee'}}
                 _light={{color: 'darkText'}}>
                 创建时间 :{formatDateTime(detail?.time)}
               </Text>
               <Text
                 fontWeight="400"
-                _dark={{color: 'gray.900'}}
+                _dark={{color: '#eee'}}
                 _light={{color: 'darkText'}}>
                 上传时间 :{formatDateTime(detail?.createdAt)}
               </Text>
@@ -152,7 +152,7 @@ export default function HomeDetail({
                   <Heading
                     size="md"
                     ml="-1"
-                    _dark={{color: 'gray.900'}}
+                    _dark={{color: '#eee'}}
                     _light={{color: 'darkText'}}>
                     错误代码：
                   </Heading>
@@ -162,7 +162,7 @@ export default function HomeDetail({
                     <Text
                       key={index}
                       fontWeight="400"
-                      _dark={{color: 'gray.900'}}
+                      _dark={{color: '#eee'}}
                       _light={{color: 'darkText'}}>
                       {code.code}
                     </Text>

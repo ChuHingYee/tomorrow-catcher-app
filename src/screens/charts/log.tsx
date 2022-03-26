@@ -12,7 +12,7 @@ export default ({
   useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {backgroundColor: colorMode === 'dark' ? '#553718' : '#fff'},
-      headerTintColor: colorMode === 'dark' ? 'gray.900' : '#27272a',
+      headerTintColor: colorMode === 'dark' ? '#eeeeee' : '#27272a',
     });
   }, [colorMode, navigation]);
   return (

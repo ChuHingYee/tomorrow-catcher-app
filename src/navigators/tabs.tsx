@@ -49,7 +49,7 @@ export default function Tabs() {
           },
           headerShadowVisible: false,
           headerTitleStyle: {
-            color: colorMode === 'dark' ? '#27272a' : '#fff',
+            color: colorMode === 'dark' ? '#eee' : '#fff',
           },
           tabBarIcon: ({focused, size}) => (
             <Image

@@ -73,26 +73,26 @@ export default ({
         py="2">
         <VStack space={3} justifyContent="space-between">
           <HStack>
-            <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}} bold>
+            <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}} bold>
               应用名称：
             </Text>
-            <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}}>
+            <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}}>
               {row.item.appInfo.name}/{row.item.appInfo.appKey}
             </Text>
           </HStack>
           <HStack>
-            <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}} bold>
+            <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}} bold>
               报错时间：
             </Text>
-            <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}}>
+            <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}}>
               {formatDateTime(row.item.time)}
             </Text>
           </HStack>
           <HStack>
-            <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}} bold>
+            <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}} bold>
               上传时间：
             </Text>
-            <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}}>
+            <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}}>
               {formatDateTime(row.item.createdAt)}
             </Text>
           </HStack>
@@ -113,7 +113,7 @@ export default ({
   useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {backgroundColor: colorMode === 'dark' ? '#553718' : '#fff'},
-      headerTintColor: colorMode === 'dark' ? 'gray.900' : '#27272a',
+      headerTintColor: colorMode === 'dark' ? '#eee' : '#27272a',
     });
   }, [colorMode, navigation]);
   return (

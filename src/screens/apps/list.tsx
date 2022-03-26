@@ -83,7 +83,7 @@ export default ({
           <Text
             fontSize="xs"
             fontWeight="medium"
-            _dark={{color: 'gray.900'}}
+            _dark={{color: '#eee'}}
             _light={{color: '#fff'}}>
             修改
           </Text>
@@ -103,7 +103,7 @@ export default ({
           <Text
             fontSize="xs"
             fontWeight="medium"
-            _dark={{color: 'gray.900'}}
+            _dark={{color: '#eee'}}
             _light={{color: '#fff'}}>
             {row.item.status === 1 ? '停用' : '启用'}
           </Text>
@@ -123,42 +123,42 @@ export default ({
       py="2">
       <VStack space={3} justifyContent="space-between">
         <HStack>
-          <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}} bold>
+          <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}} bold>
             应用名称：
           </Text>
-          <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}}>
+          <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}}>
             {row.item.name}
           </Text>
         </HStack>
         <HStack>
-          <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}} bold>
+          <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}} bold>
             应用Key：
           </Text>
-          <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}}>
+          <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}}>
             {row.item._id}
           </Text>
         </HStack>
         <HStack>
-          <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}} bold>
+          <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}} bold>
             创建时间:
           </Text>
-          <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}}>
+          <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}}>
             {formatDateTime(row.item.createdAt)}
           </Text>
         </HStack>
         <HStack>
-          <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}} bold>
+          <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}} bold>
             更新时间:
           </Text>
-          <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}}>
+          <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}}>
             {formatDateTime(row.item.updatedAt)}
           </Text>
         </HStack>
         <HStack>
-          <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}} bold>
+          <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}} bold>
             状态：
           </Text>
-          <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}}>
+          <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}}>
             {row.item.status === 1 ? '启用' : '停用'}
           </Text>
         </HStack>
@@ -212,7 +212,7 @@ export default ({
   useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {backgroundColor: colorMode === 'dark' ? '#553718' : '#fff'},
-      headerTintColor: colorMode === 'dark' ? 'gray.900' : '#27272a',
+      headerTintColor: colorMode === 'dark' ? '#eee' : '#27272a',
     });
   }, [colorMode, navigation]);
 

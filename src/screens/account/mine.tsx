@@ -49,12 +49,13 @@ export default function Mine({
             as={Icon}
             mr="2"
             size={6}
-            _dark={{color: 'gray.900'}}
+            _dark={{color: '#eee'}}
             _light={{color: '#fff'}}
             name="setting"
           />
         </Pressable>
       ),
+      headerTintColor: colorMode === 'dark' ? '#eeeeee' : '#27272a',
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [navigation]);
@@ -66,7 +67,7 @@ export default function Mine({
           size="60px"
           mr="3"
           _text={{
-            color: colorMode === 'dark' ? '#1F2937' : '#fff',
+            color: colorMode === 'dark' ? '#eee' : '#fff',
           }}>
           {shortName}
         </Avatar>
@@ -74,15 +75,12 @@ export default function Mine({
           <Text
             fontWeight="bold"
             fontSize="22"
-            _dark={{color: 'gray.900'}}
+            _dark={{color: '#eee'}}
             _light={{color: '#fff'}}
             mb="0">
             {userInfo?.name || '-'}
           </Text>
-          <Text
-            fontSize="16"
-            _dark={{color: 'gray.900'}}
-            _light={{color: '#fff'}}>
+          <Text fontSize="16" _dark={{color: '#eee'}} _light={{color: '#fff'}}>
             {userInfo?.name || '-'}
           </Text>
         </VStack>
@@ -113,12 +111,10 @@ export default function Mine({
                     mr="2"
                     size={6}
                     name={tab.icon}
-                    _dark={{color: 'gray.900'}}
+                    _dark={{color: '#eee'}}
                     _light={{color: 'darkText'}}
                   />
-                  <Text
-                    _dark={{color: 'gray.900'}}
-                    _light={{color: 'darkText'}}>
+                  <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}}>
                     {tab.label}
                   </Text>
                 </HStack>
@@ -127,7 +123,7 @@ export default function Mine({
                   ml="2"
                   size={5}
                   name="right"
-                  _dark={{color: 'gray.900'}}
+                  _dark={{color: '#eee'}}
                   _light={{color: 'darkText'}}
                 />
               </HStack>
@@ -139,7 +135,7 @@ export default function Mine({
         <Button
           onPress={handleLogin}
           _text={{
-            color: colorMode === 'dark' ? '#1F2937' : '#fff',
+            color: colorMode === 'dark' ? '#eee' : '#fff',
           }}>
           退出登录
         </Button>

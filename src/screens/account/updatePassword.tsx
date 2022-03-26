@@ -111,16 +111,14 @@ export default ({
   useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {backgroundColor: colorMode === 'dark' ? '#553718' : '#fff'},
-      headerTintColor: colorMode === 'dark' ? 'gray.900' : '#27272a',
+      headerTintColor: colorMode === 'dark' ? '#eee' : '#27272a',
     });
   }, [colorMode, navigation]);
   return (
     <Box _dark={{bg: '#422c15'}} px={4} flex={1}>
       <VStack width="90%" mx="3" mt="10">
         <FormControl isRequired isInvalid={!!errors.oldPassword} mb="4">
-          <FormControl.Label _text={{color: 'gray.900'}}>
-            原密码
-          </FormControl.Label>
+          <FormControl.Label _text={{color: '#eee'}}>原密码</FormControl.Label>
           <Input
             type="password"
             variant="underlined"
@@ -135,9 +133,7 @@ export default ({
           ) : null}
         </FormControl>
         <FormControl isRequired isInvalid={!!errors.password} mb="4">
-          <FormControl.Label _text={{color: 'gray.900'}}>
-            新密码
-          </FormControl.Label>
+          <FormControl.Label _text={{color: '#eee'}}>新密码</FormControl.Label>
           <Input
             type="password"
             variant="underlined"
@@ -152,7 +148,7 @@ export default ({
           ) : null}
         </FormControl>
         <FormControl isRequired isInvalid={!!errors.rePassword} mb="4">
-          <FormControl.Label _text={{color: 'gray.900'}}>
+          <FormControl.Label _text={{color: '#eee'}}>
             确认新密码
           </FormControl.Label>
           <Input

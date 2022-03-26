@@ -79,14 +79,11 @@ export default function Home({
   return (
     <Box flex="1" pt="40%" position="relative" _dark={{bg: '#201E20'}}>
       <Box w="100%" h="55%" bg="primary.500" pt="12" pl="3" position="absolute">
-        <Text
-          _dark={{color: 'gray.900'}}
-          _light={{color: '#fff'}}
-          fontSize={16}>
+        <Text _dark={{color: '#eee'}} _light={{color: '#fff'}} fontSize={16}>
           您好，{timeStr}！
         </Text>
         <Text
-          _dark={{color: 'gray.900'}}
+          _dark={{color: '#eee'}}
           _light={{color: '#fff'}}
           fontSize={24}
           fontWeight="bold">
@@ -122,7 +119,7 @@ export default function Home({
                         <Image source={nav.icon} size="16" alt={nav.label} />
                       </Center>
                       <Text
-                        _dark={{color: 'gray.900'}}
+                        _dark={{color: '#eee'}}
                         _light={{color: 'darkText'}}>
                         {nav.label}
                       </Text>
@@ -134,7 +131,7 @@ export default function Home({
                         ml="2"
                         size={5}
                         name="arrowright"
-                        _dark={{color: 'gray.900'}}
+                        _dark={{color: '#eee'}}
                         _light={{color: 'primary.500'}}
                       />
                     </Box>

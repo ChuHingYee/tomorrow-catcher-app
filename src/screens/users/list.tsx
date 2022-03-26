@@ -74,7 +74,7 @@ export default ({
           <Text
             fontSize="xs"
             fontWeight="medium"
-            _dark={{color: 'gray.900'}}
+            _dark={{color: '#eee'}}
             _light={{color: '#fff'}}>
             {row.item.status === 1 ? '停用' : '启用'}
           </Text>
@@ -94,42 +94,42 @@ export default ({
       py="2">
       <VStack space={3} justifyContent="space-between">
         <HStack>
-          <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}} bold>
+          <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}} bold>
             账号：
           </Text>
-          <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}}>
+          <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}}>
             {row.item.account}
           </Text>
         </HStack>
         <HStack>
-          <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}} bold>
+          <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}} bold>
             姓名：
           </Text>
-          <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}}>
+          <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}}>
             {row.item.name}
           </Text>
         </HStack>
         <HStack>
-          <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}} bold>
+          <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}} bold>
             创建时间：
           </Text>
-          <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}}>
+          <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}}>
             {formatDateTime(row.item.createdAt)}
           </Text>
         </HStack>
         <HStack>
-          <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}} bold>
+          <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}} bold>
             上次登录时间：
           </Text>
-          <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}}>
+          <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}}>
             {formatDateTime(row.item.lastLoginTime)}
           </Text>
         </HStack>
         <HStack>
-          <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}} bold>
+          <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}} bold>
             状态：
           </Text>
-          <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}}>
+          <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}}>
             {row.item.status === 1 ? '启用' : '停用'}
           </Text>
         </HStack>
@@ -180,7 +180,7 @@ export default ({
       headerStyle: {
         backgroundColor: colorMode === 'dark' ? '#553718' : '#fff',
       },
-      headerTintColor: colorMode === 'dark' ? '#27272a' : '#27272a',
+      headerTintColor: colorMode === 'dark' ? '#eeeeee' : '#27272a',
     });
   }, [colorMode, navigation]);
   return (

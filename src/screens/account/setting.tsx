@@ -15,7 +15,7 @@ function DarkModeSetting() {
       flexDirection="row"
       borderTopWidth="1px"
       borderBottomWidth="1px">
-      <Text _dark={{color: 'gray.900'}} _light={{color: 'darkText'}}>
+      <Text _dark={{color: '#eee'}} _light={{color: 'darkText'}}>
         暗黑模式
       </Text>
       <Switch
@@ -33,7 +33,7 @@ export default function Setting({
   useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {backgroundColor: colorMode === 'dark' ? '#553718' : '#fff'},
-      headerTintColor: colorMode === 'dark' ? 'gray.900' : '#27272a',
+      headerTintColor: colorMode === 'dark' ? '#eeeeee' : '#27272a',
     });
   }, [colorMode, navigation]);
   return (
