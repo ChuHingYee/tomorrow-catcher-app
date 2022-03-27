@@ -4,6 +4,7 @@ import {RNWebChart} from '@react-native-web-charts/webview';
 import {html} from '@react-native-web-charts/echarts';
 import {WebView} from 'react-native-webview';
 import EchartsTheme from '@contants/echartsTheme';
+import LoadingWrap from './loadingWrap';
 import type {ColorMode} from 'native-base';
 import useSWR from 'swr';
 const date = Date.now();
@@ -41,31 +42,6 @@ export default (props: Props) => {
           });
         }
       });
-      // let datasetStr = '';
-      // let lengendDataStr = '';
-      // let seriesStr = '';
-      // const result: Array<Array<number | string>> = [['日期']];
-      // data.forEach((item, index) => {
-      //   result[0].push(item.name);
-      //   lengendDataStr = lengendDataStr + `'${item.name}',`;
-      //   seriesStr = seriesStr + '{"smooth": true, "type": "line"},';
-      //   if (index === 0) {
-      //     item.list.forEach(citem => {
-      //       result.push([`${citem.label}号`, citem.count]);
-      //     });
-      //   } else {
-      //     item.list.forEach((citem, cindex) => {
-      //       result[cindex + 1].push(citem.count);
-      //     });
-      //   }
-      // });
-      // result.forEach(item => {
-      //   let itemStr = '';
-      //   item.forEach(citem => {
-      //     itemStr = itemStr + `'${citem}',`;
-      //   });
-      //   datasetStr = datasetStr + `[${itemStr}],`;
-      // });
       const options = {
         title: {
           text: '当月日志统计',
@@ -112,7 +88,12 @@ export default (props: Props) => {
       ref={ref}
       onLoad={webviewOnLoad}
       source={{html}}
-      webStyle={{opacity: 0.99}}
+      webStyle={{
+        opacity: 0.99,
+        backgroundColor: props.theme === 'dark' ? '#422c15' : '#fff',
+      }}
+      hasLoadingComponent={true}
+      loadingComponent={LoadingWrap()}
     />
   );
 };

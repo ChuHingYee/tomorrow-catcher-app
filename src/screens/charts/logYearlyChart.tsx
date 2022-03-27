@@ -4,6 +4,7 @@ import {RNWebChart} from '@react-native-web-charts/webview';
 import {html} from '@react-native-web-charts/echarts';
 import {WebView} from 'react-native-webview';
 import EchartsTheme from '@contants/echartsTheme';
+import LoadingWrap from './loadingWrap';
 import type {ColorMode} from 'native-base';
 import useSWR from 'swr';
 const year = new Date().getFullYear();
@@ -85,7 +86,12 @@ export default (props: Props) => {
       ref={ref}
       onLoad={webviewOnLoad}
       source={{html}}
-      webStyle={{opacity: 0.99}}
+      webStyle={{
+        opacity: 0.99,
+        backgroundColor: props.theme === 'dark' ? '#422c15' : '#fff',
+      }}
+      hasLoadingComponent={true}
+      loadingComponent={LoadingWrap()}
     />
   );
 };
