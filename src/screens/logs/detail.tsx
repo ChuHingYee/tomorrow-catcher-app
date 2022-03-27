@@ -19,6 +19,20 @@ export default function HomeDetail({
   const {colorMode} = useColorMode();
   const [isLoading, setIsLoading] = useState(false);
   const [detail, setDetail] = useState<null | API.LogItemDetailResponse>(null);
+  const computedErrorType = () => {
+    const map = {
+      network: '网络请求',
+      lag: '渲染卡顿',
+      sourceLoad: '资源加载错误',
+      unhandledrejection: 'promise',
+      unknow: '未知',
+    };
+    if (detail?.type) {
+      return map[detail?.type];
+    } else {
+      return '-';
+    }
+  };
   const getDetail = (_id: string) => {
     setIsLoading(true);
     GetLogDetail({_id})
@@ -79,26 +93,44 @@ export default function HomeDetail({
                 fontWeight="400"
                 _dark={{color: '#eee'}}
                 _light={{color: 'darkText'}}>
-                错误名称 :{detail?.name}
+                错误消息 :{detail?.message || '-'}
+              </Text>
+              {detail?.stack && (
+                <Text
+                  fontWeight="400"
+                  _dark={{color: '#eee'}}
+                  _light={{color: 'darkText'}}>
+                  错误位置 :{detail?.stack || '-'}
+                </Text>
+              )}
+              <Text
+                fontWeight="400"
+                _dark={{color: '#eee'}}
+                _light={{color: 'darkText'}}>
+                错误URL :{detail?.href || '-'}
               </Text>
               <Text
                 fontWeight="400"
                 _dark={{color: '#eee'}}
                 _light={{color: 'darkText'}}>
-                错误消息 :{detail?.message}
+                错误类型 :{computedErrorType()}
               </Text>
-              <Text
-                fontWeight="400"
-                _dark={{color: '#eee'}}
-                _light={{color: 'darkText'}}>
-                错误位置 :{detail?.result?.column}
-              </Text>
-              <Text
-                fontWeight="400"
-                _dark={{color: '#eee'}}
-                _light={{color: 'darkText'}}>
-                错误文件 :{detail?.result?.source}
-              </Text>
+              {detail?.result && (
+                <>
+                  <Text
+                    fontWeight="400"
+                    _dark={{color: '#eee'}}
+                    _light={{color: 'darkText'}}>
+                    错误位置 :{detail?.result?.column}
+                  </Text>
+                  <Text
+                    fontWeight="400"
+                    _dark={{color: '#eee'}}
+                    _light={{color: 'darkText'}}>
+                    错误文件 :{detail?.result?.source}
+                  </Text>
+                </>
+              )}
               <Text
                 fontWeight="400"
                 _dark={{color: '#eee'}}
@@ -157,10 +189,10 @@ export default function HomeDetail({
                     错误代码：
                   </Heading>
                 </Stack>
-                {detail.codes.map((code, index) => {
+                {detail.codes.map(code => {
                   return (
                     <Text
-                      key={index}
+                      key={code.number}
                       fontWeight="400"
                       _dark={{color: code.highlight ? 'error.500' : '#eee'}}
                       _light={{

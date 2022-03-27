@@ -83,6 +83,10 @@ declare namespace API {
       platform: string;
       sdkVersion: string;
       userAgent: string;
+      connection: {
+        effectiveType: string;
+        type: string;
+      };
     };
     customInfo: string;
   }
@@ -99,8 +103,12 @@ declare namespace API {
       source: string;
     };
     codes: LogItemCode[];
-    name: string;
     message: string;
+    stack?: string;
+    type: 'network' | 'lag' | 'sourceLoad' | 'unhandledrejection' | 'unknow';
+    href: string;
+    customInfo?: string;
+    appInfo: TypeInfo;
   }
 
   interface ChartReportInfo {
