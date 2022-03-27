@@ -162,8 +162,10 @@ export default function HomeDetail({
                     <Text
                       key={index}
                       fontWeight="400"
-                      _dark={{color: '#eee'}}
-                      _light={{color: 'darkText'}}>
+                      _dark={{color: code.highlight ? 'error.500' : '#eee'}}
+                      _light={{
+                        color: code.highlight ? 'error.500' : 'darkText',
+                      }}>
                       {code.code}
                     </Text>
                   );
