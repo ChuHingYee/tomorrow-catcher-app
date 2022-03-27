@@ -95,7 +95,7 @@ export default function HomeDetail({
                 _light={{color: 'darkText'}}>
                 错误消息 :{detail?.message || '-'}
               </Text>
-              {detail?.stack && (
+              {!!detail?.stack && (
                 <Text
                   fontWeight="400"
                   _dark={{color: '#eee'}}
